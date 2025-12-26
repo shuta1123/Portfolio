@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="shuta1123 portfolio" />
+  <title>shuta1123 | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="トップへ">
+      <span class="dot" aria-hidden="true"></span>
+      <span>shuta1123</span>
+    </a>
+
+    <nav class="nav" aria-label="メインメニュー">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#works">Works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="topbar-actions">
+      <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="テーマ切り替え">
+        <span class="icon" aria-hidden="true">☾</span>
+        <span class="hide-sm">Theme</span>
+      </button>
+      <a class="btn btn-primary" href="https://github.com/shuta1123" target="_blank" rel="noreferrer">
+        GitHub
+      </a>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero reveal">
+      <div class="hero-left">
+        <p class="kicker">PORTFOLIO</p>
+        <h1 class="headline">Hi, I’m <span class="accent">shuta1123</span>.</h1>
+        <p class="subhead">
+          Web / CG / App など、動くものを作っています。
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#works">Worksを見る</a>
+          <a class="btn btn-ghost" href="#contact">連絡</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num" id="statProjects">—</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">Web / CG</div>
+            <div class="stat-label">Focus</div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="hero-card reveal">
+        <div class="card glass">
+          <div class="card-title">Quick links</div>
+          <div class="card-body">
+            <a class="link-row" href="https://github.com/shuta1123" target="_blank" rel="noreferrer">
+              <span>GitHub</span><span aria-hidden="true">↗</span>
+            </a>
+            <a class="link-row" href="#works">
+              <span>Works</span><span aria-hidden="true">→</span>
+            </a>
+            <a class="link-row" href="#contact">
+              <span>Contact</span><span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section reveal">
+      <div class="section-head">
+        <h2>About</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>やっていること</h3>
+          <p>
+            UIを作って、データを扱って、実際に動くところまで持っていくのが好きです。
+            小さく作って改善するタイプです。
+          </p>
+          <ul class="bullets">
+            <li>Webアプリ（UI / API / DB）</li>
+            <li>CG・シミュレーション</li>
+            <li>制作や学習を支えるツール</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>このページの見方</h3>
+          <p>
+            Worksは検索・タグで絞り込みできます。
+            詳細はDetailsからモーダルで確認できます。
+          </p>
+          <ul class="bullets">
+            <li>検索 + タグフィルタ</li>
+            <li>モーダル詳細（ページ遷移なし）</li>
+            <li>Light/Dark切替（保存あり）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section reveal">
+      <div class="section-head">
+        <h2>Skills</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Frontend</h3>
+          <div class="chips">
+            <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+            <span class="chip">React</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Backend / Data</h3>
+          <div class="chips">
+            <span class="chip">PHP</span><span class="chip">Flask</span><span class="chip">SQL</span>
+            <span class="chip">MySQL</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>CG / Native</h3>
+          <div class="chips">
+            <span class="chip">C++</span><span class="chip">OpenGL</span><span class="chip">GLUT</span>
+            <span class="chip">OpenCV</span><span class="chip">Unity</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Tools</h3>
+          <div class="chips">
+            <span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">VS Code</span>
+            <span class="chip">IntelliJ</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="works" class="section reveal">
+      <div class="section-head">
+        <h2>Works</h2>
+      </div>
+
+      <div class="works-controls card">
+        <div class="control">
+          <label for="q">検索</label>
+          <input id="q" type="search" placeholder="例: OpenGL / PHP / UI / DB ..." autocomplete="off" />
+        </div>
+
+        <div class="control">
+          <label for="tagSelect">タグ</label>
+          <select id="tagSelect">
+            <option value="__ALL__">すべて</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="sortSelect">並び替え</label>
+          <select id="sortSelect">
+            <option value="new">新しい順</option>
+            <option value="az">A → Z</option>
+          </select>
+        </div>
+
+        <div class="control-inline">
+          <button id="clearBtn" class="btn btn-ghost" type="button">クリア</button>
+        </div>
+      </div>
+
+      <div id="worksGrid" class="works-grid" aria-live="polite"></div>
+
+      <div id="worksEmpty" class="empty card" hidden>
+        <h3>見つかりませんでした</h3>
+        <p>検索語やタグを変えるか、クリアしてみてください。</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section reveal">
+      <div class="section-head">
+        <h2>Contact</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+            <h3>連絡方法</h3>
+            <p>
+                お問い合わせはメールで受け付けています。
+            </p>
+            <div class="stack">
+                <a
+                class="btn btn-primary"
+                href="mailto:shutay1123@yahoo.co.jp?subject=Portfolio%20Inquiry&body=shuta1123%20%E3%81%95%E3%82%93%E3%81%B8%0D%0A%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%E3%82%92%E6%8B%9D%E8%A6%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%E3%80%82%0D%0A%0D%0A%E3%80%90%E7%94%A8%E4%BB%B6%E3%80%91%0D%0A%0D%0A%E3%82%88%E3%82%8D%E3%81%97%E3%81%8F%E3%81%8A%E9%A1%98%E3%81%84%E3%81%97%E3%81%BE%E3%81%99%E3%80%82"
+                >
+                メールで連絡する
+                </a>
+                <span class="muted">※ メールアプリが起動します</span>
+            </div>
+        </div>
+
+
+        </div> 
+    </section>
+
+    <footer class="footer">
+      <div class="muted">© <span id="year"></span> shuta1123</div>
+      <div class="muted">Built for GitHub Pages</div>
+    </footer>
+  </main>
+
+  <dialog id="projectModal" class="modal">
+    <div class="modal-inner">
+      <div class="modal-top">
+        <div>
+          <div class="modal-title" id="modalTitle">Project</div>
+          <div class="modal-sub" id="modalSub">Tags / year</div>
+        </div>
+        <button class="btn btn-ghost" id="modalClose" type="button" aria-label="閉じる">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <p id="modalDesc"></p>
+
+        <div class="modal-tags" id="modalTags"></div>
+        <div class="modal-links" id="modalLinks"></div>
+
+        <div class="modal-meta card">
+          <div class="meta-row">
+            <span class="muted">ポイント</span>
+          </div>
+          <ul class="bullets" id="modalBullets"></ul>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
