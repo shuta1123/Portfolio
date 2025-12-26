@@ -7,6 +7,7 @@
     "tags": ["Web", "UI", "DB", "Design"],
     "repo": "https://github.com/shuta1123/donburipos",
     "demo": "",
+    "detail": "works/donburipos.html",
     "bullets": [
       "注文/注文明細のデータ構造を設計",
       "複数画面運用を想定したUI"
@@ -20,6 +21,7 @@
     "tags": ["Web", "React", "UI", "API", "Frontend"],
     "repo": "",
     "demo": "assets/soratomo.png",
+    "detail": "works/soratomo.html",
     "bullets": [
         "地名ドロップダウン＋予定入力＋質問入力を1フォームに統合",
         "天気情報（気温・天気・湿度・風速）とAI応答を同時表示",
@@ -34,6 +36,7 @@
     "tags": ["Web", "JavaScript", "UI"],
     "repo": "https://github.com/shuta1123/boukincountweb",
     "demo": "https://shuta1123.github.io/boukincountweb/",
+    "detail": "works/boukincount.html",
     "bullets": [
         "入力した棒金を含めた金額を即座に反映するカウント表示",
         "展示・イベント利用を想定したシンプルなUI",
