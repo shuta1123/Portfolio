@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>そらとも | Works</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="天気と予定をもとにアドバイスを返すWebアプリ「そらとも」のフロントエンド制作事例">
+
+  <!-- 共通CSS（トップと同じテーマ変数を使う） -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- 作品詳細用CSS -->
+  <link rel="stylesheet" href="works.css">
+</head>
+<body>
+
+<main class="work-detail">
+
+  <!-- ===== Header ===== -->
+  <header class="work-header">
+    <h1 class="work-title">そらとも</h1>
+    <p class="work-lead">
+      天気と予定を入力すると、会話形式でアドバイスを返すWebアプリ
+    </p>
+
+    <div class="work-meta">
+      <span class="tag">Web</span>
+      <span class="tag">React</span>
+      <span class="tag">UI</span>
+      <span class="tag">API</span>
+      <span class="tag">Frontend</span>
+    </div>
+  </header>
+
+  <!-- ===== 概要 ===== -->
+  <section class="section">
+    <h2>概要</h2>
+    <p>
+      「そらとも」は、ユーザーが入力した<strong>地名・予定・質問</strong>をもとに、
+      天気情報とAIによるアドバイスを一度に表示するWebアプリです。
+    </p>
+    <p>
+      本制作では、<strong>フロントエンド（React）</strong>を担当し、
+      入力のしやすさと結果の分かりやすさを重視してUIを設計しました。
+    </p>
+  </section>
+
+  <!-- ===== 画面 ===== -->
+  <section class="section">
+    <h2>画面イメージ</h2>
+
+    <div class="work-image">
+        <img src="../assets/soratomo_0.png" alt="そらとも トップ画面">
+    </div>
+
+    <div class="work-image">
+        <img src="../assets/soratomo_1.png" alt="そらとも 入力フォーム">
+    </div>
+
+    <div class="work-image">
+        <img src="../assets/soratomo_2.png" alt="そらとも 天気表示">
+    </div>
+
+    <div class="work-image">
+        <img src="../assets/soratomo_3.png" alt="そらとも AIアドバイス表示">
+    </div>
+    </section>
+
+
+  <!-- ===== 主な機能 ===== -->
+  <section class="section">
+    <h2>主な機能</h2>
+    <ul>
+      <li>地名をドロップダウンから選択（JSONで定義）</li>
+      <li>予定・質問をテキストで入力</li>
+      <li>天気情報（気温・天気・湿度・風速）の表示</li>
+      <li>AIによるアドバイスをチャット形式で表示</li>
+    </ul>
+  </section>
+
+  <!-- ===== 技術構成 ===== -->
+  <section class="section">
+    <h2>技術構成</h2>
+    <ul>
+      <li>Frontend：React</li>
+      <li>Backend：Flask（API想定）</li>
+      <li>外部API：OpenWeatherMap API / OpenAI API</li>
+      <li>通信形式：JSON（POST）</li>
+    </ul>
+  </section>
+
+  <!-- ===== 工夫した点 ===== -->
+  <section class="section">
+    <h2>工夫した点</h2>
+    <ul>
+      <li>
+        地名・予定・質問を<strong>1つのフォーム</strong>にまとめ、入力の手間を削減
+      </li>
+      <li>
+        天気結果とAIアドバイスを<strong>同時に表示</strong>し、画面遷移を不要にした
+      </li>
+      <li>
+        認証やDBを使わず、<strong>軽量で分かりやすい構成</strong>にした
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===== 役割 ===== -->
+  <section class="section">
+    <h2>担当範囲</h2>
+    <p>
+      フロントエンドのUI実装を担当しました。
+      バックエンドのAPI仕様を前提に、送受信するJSON構造を意識して実装しています。
+    </p>
+  </section>
+
+  <!-- ===== Actions ===== -->
+  <div class="work-actions">
+    <a class="btn btn-ghost" href="../index.html#works">← Works一覧に戻る</a>
+  </div>
+
+</main>
+
+</body>
+</html>
