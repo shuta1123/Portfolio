@@ -2,7 +2,7 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  // ---- safe helper: nullなら何もしない ----
+  // nullなら何もしない
   const on = (el, ev, fn) => {
     if (el) el.addEventListener(ev, fn);
   };
@@ -37,7 +37,7 @@
     applyTheme(next);
   });
 
-  // Reveal on scroll
+  // Reveal
   const revealEls = $$(".reveal");
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver(
@@ -53,11 +53,10 @@
     );
     revealEls.forEach((el) => io.observe(el));
   } else {
-    // fallback
     revealEls.forEach((el) => el.classList.add("is-visible"));
   }
 
-  // Contact template copy (optional: buttonが無いなら何もしない)
+  // Contact template copy（ボタンが無ければ何もしない）
   on($("#copyTemplateBtn"), "click", async () => {
     const template =
 `shuta1123 さんへ
@@ -84,7 +83,7 @@
     }
   });
 
-  // Works (required elements check)
+  // Works（必要DOM）
   const els = {
     grid: $("#worksGrid"),
     empty: $("#worksEmpty"),
@@ -93,17 +92,8 @@
     sort: $("#sortSelect"),
     clear: $("#clearBtn"),
     statProjects: $("#statProjects"),
-    modal: $("#projectModal"),
-    modalTitle: $("#modalTitle"),
-    modalSub: $("#modalSub"),
-    modalDesc: $("#modalDesc"),
-    modalTags: $("#modalTags"),
-    modalLinks: $("#modalLinks"),
-    modalBullets: $("#modalBullets"),
-    modalClose: $("#modalClose"),
   };
 
-  // Worksに必要なDOMが無ければ以降をスキップ（ページ崩れ防止）
   const hasWorksCore = !!(els.grid && els.empty && els.q && els.tag && els.sort && els.clear);
   const state = { all: [], q: "", tag: "__ALL__", sort: "new" };
 
@@ -145,82 +135,25 @@
     return hay.includes(q);
   };
 
-  const closeModal = () => {
-    if (els.modal && els.modal.open && typeof els.modal.close === "function") els.modal.close();
-    else if (els.modal) els.modal.removeAttribute("open");
-  };
-
-  const openModal = (p) => {
-    if (!els.modal || !els.modalTitle || !els.modalSub || !els.modalDesc) return;
-
-    els.modalTitle.textContent = p.title || "Project";
-    const sub = [];
-    if (p.year) sub.push(String(p.year));
-    if (p.tags && p.tags.length) sub.push(p.tags.join(" · "));
-    els.modalSub.textContent = sub.join("  |  ") || "";
-
-    els.modalDesc.textContent = p.description || p.summary || "";
-
-    if (els.modalTags) {
-      els.modalTags.innerHTML = "";
-      (p.tags || []).forEach((t) => {
-        const span = document.createElement("span");
-        span.className = "tag";
-        span.textContent = t;
-        els.modalTags.appendChild(span);
-      });
-    }
-
-    if (els.modalLinks) {
-      els.modalLinks.innerHTML = "";
-      if (p.demo) {
-        const a = document.createElement("a");
-        a.className = "btn btn-primary";
-        a.href = p.demo;
-        a.target = "_blank";
-        a.rel = "noreferrer";
-        a.textContent = "デモを開く ↗";
-        els.modalLinks.appendChild(a);
-      }
-      if (p.repo) {
-        const a = document.createElement("a");
-        a.className = "btn btn-ghost";
-        a.href = p.repo;
-        a.target = "_blank";
-        a.rel = "noreferrer";
-        a.textContent = "Repoを開く ↗";
-        els.modalLinks.appendChild(a);
-      }
-    }
-
-    if (els.modalBullets) {
-      els.modalBullets.innerHTML = "";
-      (p.bullets || []).forEach((b) => {
-        const li = document.createElement("li");
-        li.textContent = b;
-        els.modalBullets.appendChild(li);
-      });
-    }
-
-    if (typeof els.modal.showModal === "function") els.modal.showModal();
-    else els.modal.setAttribute("open", "open");
-  };
-
+  // ★ ここが変更点：モーダルをやめて detail へのリンクにする
   const renderCard = (p) => {
     const card = document.createElement("article");
     card.className = "card work-card reveal is-visible";
 
     const tags = (p.tags || []).slice(0, 6).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("");
 
-    const repoBtn = p.repo
-      ? `<a class="btn btn-ghost" href="${escapeHtml(p.repo)}" target="_blank" rel="noreferrer">Repo ↗</a>`
-      : "";
-
     const demoBtn = p.demo
       ? `<a class="btn btn-primary" href="${escapeHtml(p.demo)}" target="_blank" rel="noreferrer">デモ ↗</a>`
       : "";
 
-    const detailsBtn = els.modal ? `<button class="btn btn-ghost" type="button" data-open="1">詳細 →</button>` : "";
+    const repoBtn = p.repo
+      ? `<a class="btn btn-ghost" href="${escapeHtml(p.repo)}" target="_blank" rel="noreferrer">Repo ↗</a>`
+      : "";
+
+    // detail がある作品だけ「詳細」ボタンを表示（同一タブ遷移）
+    const detailBtn = p.detail
+      ? `<a class="btn btn-ghost" href="${escapeHtml(p.detail)}">詳細 →</a>`
+      : "";
 
     card.innerHTML = `
       <div class="work-top">
@@ -232,12 +165,9 @@
       <div class="work-actions">
         ${demoBtn}
         ${repoBtn}
-        ${detailsBtn}
+        ${detailBtn}
       </div>
     `;
-
-    const btn = card.querySelector('button[data-open="1"]');
-    if (btn) on(btn, "click", () => openModal(p));
 
     return card;
   };
@@ -279,23 +209,6 @@
       render();
     });
 
-    // modal close handlers (optional)
-    on(els.modalClose, "click", closeModal);
-    on(els.modal, "click", (e) => {
-      if (!els.modal) return;
-      const rect = els.modal.getBoundingClientRect();
-      const inDialog =
-        e.clientX >= rect.left &&
-        e.clientX <= rect.right &&
-        e.clientY >= rect.top &&
-        e.clientY <= rect.bottom;
-      if (!inDialog) closeModal();
-    });
-    on(window, "keydown", (e) => {
-      if (e.key === "Escape") closeModal();
-    });
-
-    // Load projects
     fetch("data/projects.json", { cache: "no-store" })
       .then((r) => {
         if (!r.ok) throw new Error("projects.json fetch failed");
@@ -310,8 +223,6 @@
         state.all = [];
         buildTagOptions();
         render();
-
-        // 読み込み失敗の表示（gridがある時だけ）
         if (els.grid) {
           els.grid.innerHTML = `
             <div class="card">
