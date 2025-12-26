@@ -13,18 +13,33 @@
     ]
   },
   {
-  "title": "そらとも（天気×予定アドバイス）フロントエンド",
-  "year": 2025,
-  "summary": "天気と予定を入力すると、会話形式でアドバイスを返すWebアプリのフロントエンド。",
-  "description": "ReactでUIを実装。地名はドロップダウンで選択し、予定・質問をまとめて送信。天気表示とAIアドバイス（チャットUI）を1画面で完結させました。",
-  "tags": ["Web", "React", "UI", "API", "Frontend"],
-  "repo": "",
-  "demo": "assets/soratomo.png",
-  "bullets": [
-    "地名ドロップダウン＋予定入力＋質問入力を1フォームに統合",
-    "天気情報（気温・天気・湿度・風速）とAI応答を同時表示",
-    "POST /api/weather・/api/chat を想定したフロント実装"
-  ]
-}
+    "title": "そらとも（天気×予定アドバイス）フロントエンド",
+    "year": 2025,
+    "summary": "天気と予定を入力すると、会話形式でアドバイスを返すWebアプリのフロントエンド。",
+    "description": "ReactでUIを実装。地名はドロップダウンで選択し、予定・質問をまとめて送信。天気表示とAIアドバイス（チャットUI）を1画面で完結させました。",
+    "tags": ["Web", "React", "UI", "API", "Frontend"],
+    "repo": "",
+    "demo": "assets/soratomo.png",
+    "bullets": [
+        "地名ドロップダウン＋予定入力＋質問入力を1フォームに統合",
+        "天気情報（気温・天気・湿度・風速）とAI応答を同時表示",
+        "POST /api/weather・/api/chat を想定したフロント実装"
+    ]
+    },
+    {
+    "title": "棒金カウントWebアプリ",
+    "year": 2025,
+    "summary": "棒金を含めた金庫の金額カウント・表示するシンプルなWebアプリ。",
+    "description": "イベントや企画向けに、現在の金庫の合計を分かりやすく表示するWebアプリ。視認性を重視したUIで実装しました。",
+    "tags": ["Web", "JavaScript", "UI"],
+    "repo": "https://github.com/shuta1123/boukincountweb",
+    "demo": "https://shuta1123.github.io/boukincountweb/",
+    "bullets": [
+        "入力した棒金を含めた金額を即座に反映するカウント表示",
+        "展示・イベント利用を想定したシンプルなUI",
+        "HTML / CSS / JavaScriptのみで構成"
+    ]
+    }
+
 
 ]
