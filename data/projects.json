@@ -4,7 +4,7 @@
     "year": 2025,
     "summary": "注文を受けて進捗を管理する画面のプロトタイプ。",
     "description": "注文データを永続化し、注文単位で進捗を追える設計にしたUI/DB設計のプロトタイプです。",
-    "tags": ["Web", "UI", "DB", "Design"],
+    "tags": ["Web","React","UI","DB","PHP"],
     "repo": "https://github.com/shuta1123/donburipos",
     "demo": "",
     "detail": "works/donburipos.html",
@@ -31,18 +31,18 @@
     {
     "title": "棒金カウントWebアプリ",
     "year": 2025,
-    "summary": "棒金を含めた金庫の金額カウント・表示するシンプルなWebアプリ。",
-    "description": "イベントや企画向けに、現在の金庫の合計を分かりやすく表示するWebアプリ。視認性を重視したUIで実装しました。",
-    "tags": ["Web", "JavaScript", "UI"],
+    "summary": "棒金を含めた金額計算ができるシンプルなWebアプリ。",
+    "description": "純粋なHTML / CSS / JavaScriptで構成され、ブラウザだけで動作するレスポンシブ対応のWebアプリです。金額を入力すると棒金込みの合計を即時に計算します。",
+    "tags": ["Web", "Vanilla JS", "UI", "Responsive"],
     "repo": "https://github.com/shuta1123/boukincountweb",
     "demo": "https://shuta1123.github.io/boukincountweb/",
-    "detail": "works/boukincount.html",
     "bullets": [
-        "入力した棒金を含めた金額を即座に反映するカウント表示",
-        "展示・イベント利用を想定したシンプルなUI",
-        "HTML / CSS / JavaScriptのみで構成"
+        "純粋なJavaScriptによる即時計算",
+        "レスポンシブ対応でPC・スマホどちらも快適",
+        "インストール不要・ブラウザだけで動作"
     ]
     }
+
 
 
 ]
