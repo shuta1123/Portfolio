@@ -36,6 +36,7 @@
     "tags": ["Web", "Vanilla JS", "UI", "Responsive"],
     "repo": "https://github.com/shuta1123/boukincountweb",
     "demo": "https://shuta1123.github.io/boukincountweb/",
+    "detail": "works/boukincount.html",
     "bullets": [
         "純粋なJavaScriptによる即時計算",
         "レスポンシブ対応でPC・スマホどちらも快適",
